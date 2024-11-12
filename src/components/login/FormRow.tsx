@@ -5,26 +5,24 @@ interface FormProps {
   id: string;
   type: string;
   label: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClick: () => void;
   showPassword: boolean;
   placeholder: string;
   inputName: string;
-  required: boolean;
   minLength: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  register: any;
 }
 
 const FormRow: React.FC<FormProps> = ({
   id,
   type,
   label,
-  onChange,
   onClick,
   showPassword,
   placeholder,
   inputName,
-  required,
-  minLength,
+  register,
 }) => {
   return (
     <div>
@@ -54,12 +52,9 @@ const FormRow: React.FC<FormProps> = ({
       <input
         type={type}
         id={id}
-        className="block h-16 border border-gray-300 w-full rounded-xl outline-none p-4 mt-4 mb-6 sm:max-phone:h-12 placeholder:text-xl "
-        onChange={onChange}
+        className="block h-16 border border-gray-300 w-full rounded-xl outline-none p-4 mt-4 mb-4 sm:max-phone:h-12 placeholder:text-xl "
         placeholder={placeholder}
-        name={inputName}
-        required={required}
-        minLength={minLength}
+        {...register(inputName)}
       />
     </div>
   );

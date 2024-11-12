@@ -2,9 +2,8 @@
 import Category from "./Category";
 import { useCategories } from "../../services/apiCategories";
 import { URL } from "../../utils/constants";
-import React from "react";
 
-const Categories: React.FC = () => {
+const Categories = () => {
   const { data: categories, error, isLoading } = useCategories();
 
   if (isLoading) return <p>Loading...</p>;

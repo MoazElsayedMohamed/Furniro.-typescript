@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
 import Navicons from "./Navicons";
 
-const Header: React.FC = () => {
+const Header = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   return (
     <header className="flex items-center justify-around">
