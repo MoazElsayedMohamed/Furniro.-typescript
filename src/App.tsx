@@ -3,6 +3,7 @@ import "./output.css";
 import AppLayout from "./AppLayout";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
+import { Toaster } from "sonner";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,6 +26,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <Toaster />
     </>
   );
 }
