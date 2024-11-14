@@ -1,9 +1,12 @@
-import { BsPersonExclamation } from "react-icons/bs";
-import { CiHeart, CiSearch, CiShoppingCart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+import { SvgIcon } from "../SvgIcon";
 
-const Navicons = () => {
+interface NavbarProps {
+  openMenu?: boolean;
+}
+
+const Navicons: React.FC<NavbarProps> = ({ openMenu }) => {
   const token = localStorage.getItem("token");
   const username = localStorage.getItem("username");
 
@@ -14,22 +17,27 @@ const Navicons = () => {
     toast.success("logged out successfully");
   }
   return (
-    <nav className="flex items-center gap-8">
+    <nav
+      className={
+        openMenu
+          ? "flex flex-col items-end absolute right-0 top-16 gap-2 z-[999] pt-8 pb-5 px-10"
+          : "flex items-center gap-8 max-tablet:hidden"
+      }
+    >
       {token && username ? (
-        <p className="text-xl">{username}</p>
+        <p>{username}</p>
       ) : (
         <Link to="/login">
-          <BsPersonExclamation className="w-10 h-8 sm:max-xl:h-6" />
+          <SvgIcon name="login" />
         </Link>
       )}
 
-      <CiSearch className="w-10 h-8 sm:max-xl:h-6" />
-      <CiHeart className="w-10 h-8 sm:max-xl:h-6" />
-
-      <CiShoppingCart className="w-10 h-8 sm:max-xl:h-6" />
+      <SvgIcon name="search" />
+      <SvgIcon name="heart" />
+      <SvgIcon name="shopping-cart" />
       {token && (
         <button
-          className="text-2xl border border-primary text-primary py-4 px-8 hover:bg-primary hover:text-white sm:max-xl:text-base sm:max-xl:py-2"
+          className="border border-primary text-primary py-2 px-4 hover:bg-primary hover:text-white "
           onClick={handleLogout}
         >
           log out

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-// import { IoMenu } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5";
 import "../../style.css";
 
 interface NavbarProps {
@@ -11,13 +11,13 @@ const Navbar: React.FC<NavbarProps> = ({ openMenu, setOpenMenu }) => {
   return (
     <nav>
       <div onClick={() => setOpenMenu(!openMenu)}>
-        {/* <IoMenu className="hidden w-32 h-8 sm:max-xl:flex " /> */}
+        <IoMenu className="hidden w-32 h-8 max-tablet:flex " />
       </div>
       <ul
         className={
           openMenu
-            ? "open"
-            : "flex list-none items-center gap-14 text-2xl cursor-pointer sm:max-xl:hidden"
+            ? "absolute flex flex-col items-start gap-1 pt-8 pb-5 px-10 w-full bg-white z-[999] left-0"
+            : "flex list-none items-center gap-14 cursor-pointer max-tablet:hidden "
         }
       >
         <li>

@@ -3,6 +3,17 @@ export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      bgScreen: "1170px",
+      mdScreen: "1070px",
+      tablet: "910px",
+      mdTabelt: "850px",
+      smTablet: "675px",
+      phone: "570px",
+      phone1: "480px",
+      phone2: "390px",
+      phone3: "345px",
+    },
     extend: {
       backgroundImage: {
         "custom-conic": "conic-gradient(#000 10%, #ececec)",

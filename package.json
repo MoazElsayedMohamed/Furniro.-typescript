@@ -27,6 +27,7 @@
     "sonner": "^1.7.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
+    "vite-plugin-svg-icons": "^2.0.1",
     "web-vitals": "^4.2.4",
     "yup": "^1.4.0"
   },

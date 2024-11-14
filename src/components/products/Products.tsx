@@ -5,14 +5,13 @@ import ProductElements from "./ProductElements";
 const Products = () => {
   return (
     <section className="text-center mb-12">
-      <h2 className="text-5xl capitalize mt-32 mb-12 font-bold">
+      <h2 className="text-3xl capitalize  mb-12 font-bold text-[#3A3A3A]">
         our products
       </h2>
       <ProductElements PAGE_SIZE={8} />
       <Link
         className={buttonVariants({
           variant: "outline",
-          size: "xl",
         })}
         to="/shop"
       >

@@ -6,13 +6,13 @@ import Navicons from "./Navicons";
 const Header = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   return (
-    <header className="flex items-center justify-around">
-      <div className="flex items-center mb-4">
+    <header className="flex items-center justify-around h-24 max-tablet:justify-between">
+      <div className="flex items-center ">
         <Logo />
-        <h2 className="text-4xl">Furniro</h2>
+        <h2 className="text-3xl font-bold">Furniro</h2>
       </div>
       <Navbar openMenu={openMenu} setOpenMenu={setOpenMenu} />
-      <Navicons />
+      <Navicons openMenu={openMenu} />
     </header>
   );
 };

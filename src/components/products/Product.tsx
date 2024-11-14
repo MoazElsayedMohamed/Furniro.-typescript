@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { CiHeart, CiShare1 } from "react-icons/ci";
-import { MdOutlineCompareArrows } from "react-icons/md";
+import { SvgIcon } from "../SvgIcon";
 
 interface ProductProps {
   imageUrl: string;
@@ -29,40 +28,50 @@ const Product: React.FC<ProductProps> = ({
 
   return (
     <div
-      className=" relative cursor-pointer"
+      className=" relative cursor-pointer w-full"
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     >
       {isHovering && (
-        <div className="hovering-card">
-          <button className="bg-white text-primary py-4 px-6 text-3xl font-bold border-none absolute left-1/4 top-1/3 uppercase">
-            add to cart
-          </button>
-          <div className="flex items-center gap-4 text-white absolute top-1/2 text-2xl pl-12">
-            <CiShare1 />
-            <p className="capitalize">share</p>
-            <MdOutlineCompareArrows />
-            <p className="capitalize">compare</p>
-            <CiHeart />
-            <p className="capitalize">like</p>
+        <div className="absolute w-full h-full z-[999] bg-[#3a3a3a75]">
+          <div className="flex flex-col items-center justify-center gap-6 relative top-[11rem]">
+            <div>
+              <button className="bg-white text-primary font-bold border-none py-3 px-14">
+                Add to cart
+              </button>
+            </div>
+            <div className="flex items-center justify-center gap-4 text-white   ">
+              <div className="flex gap-1 items-center">
+                <SvgIcon name="share" />
+                <p className="capitalize font-semibold">share</p>
+              </div>
+              <div className="flex gap-1 items-center">
+                <SvgIcon name="compare" />
+                <p className="capitalize font-semibold">compare</p>
+              </div>
+              <div className="flex gap-1 items-center">
+                <SvgIcon name="like" />
+                <p className="capitalize font-semibold">like</p>
+              </div>
+            </div>
           </div>
         </div>
       )}
 
-      <img src={imageUrl} alt={name} className="w-full h-9/12" />
+      <img src={imageUrl} alt={name} className=" h-[301px] w-full" />
       <p
         className={
           discount
-            ? "absolute top-4 right-2 bg-red-300 rounded-full text-white py-8 px-4  text-2xl"
-            : " absolute top-4 right-2  rounded-full text-white py-7 px-4 text-2xl bg-green-300"
+            ? "absolute top-6 right-2 bg-[#E97171]  text-white rounded-full px-2 py-4"
+            : " absolute top-6 right-2 rounded-full text-white px-3 py-4 bg-[#2EC1AC]"
         }
       >
         {discount ? `-${discount}%` : "New"}
       </p>
-      <div className="text-left flex flex-col gap-4 relative bg-gray-50 px-8 py-8">
-        <h4 className="text-3xl font-bold">{name}</h4>
-        <p className="text-2xl text-gray-400">{shortDesc}</p>
-        <p className="text-3xl font-bold">Rp {price}.000</p>
+      <div className="text-left flex flex-col gap-4 relative bg-gray-50 pl-4 py-8">
+        <h4 className="text-2xl font-bold">{name}</h4>
+        <p className="text-base text-[#898989] font-medium">{shortDesc}</p>
+        <p className="text-xl font-semibold">Rp {price}.000</p>
       </div>
     </div>
   );
